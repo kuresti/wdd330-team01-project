@@ -7,12 +7,12 @@
     "node": true
   },
   "parserOptions": {
-    "ecmaVersion": 2022,
+    "ecmaVersion": 2020,
     "sourceType": "module"
   },
 
   "rules": {
-    //"import/namespace": 0,
+    "import/namespace": 0,
     "no-unused-vars": [
       1,
       {
