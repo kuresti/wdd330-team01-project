@@ -1,3 +1,4 @@
+
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 
@@ -40,10 +41,12 @@ export default class ProductDetails {
       }
 
       addToCart() {
+
         const items = getLocalStorage("so-cart") || [];
         items.push(this.product);
         setLocalStorage("so-cart", items);
     }
+
 
       renderProductDetails(selector) {
         const element = document.querySelector(selector);
@@ -56,4 +59,4 @@ export default class ProductDetails {
     
     
 
-   
+  
