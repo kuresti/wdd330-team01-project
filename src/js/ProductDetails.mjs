@@ -8,7 +8,7 @@ function productDetailsTemplate(product){
                 <img
                     class="divider"
                     src=${product.Image}
-                    alt=${prouct.NameWithoutBrand}/>
+                    alt=${product.NameWithoutBrand}/>
                 <p class="product-card__price">$${product.FinalPrice}</p>
                 <p class="product__color">${product.Colors.ColorName}</p>
                 <p class="product__description">${product.DescriptionHTMLSimple}</p>
@@ -37,7 +37,7 @@ export default class ProductDetails {
     }
 
     addToCart() {
-        let cart = getLocalStorage("so-cart") ?? [];
+        let cart = getLocalStorage("so-cart") || [];
         cart.push(this.product);
         setLocalStorage("so-cart", cart);
     }
