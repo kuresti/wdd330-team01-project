@@ -23,9 +23,13 @@ export function setClick(selector, callback) {
 }
 
 export function getParams(param) {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const value =  urlParams.get(param);
-  return value;
-  
+
+    const queryString = window.location.search;
+      //console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    const product = urlParams.get(param);
+      //console.log(product);
+      return product;
 }
+
+
