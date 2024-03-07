@@ -9,6 +9,7 @@ const productId = getParams("product");
 const product = new ProductDetails(productId, dataSource);
 product.init();
 
+
 // add to cart button event handler
 /*async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
