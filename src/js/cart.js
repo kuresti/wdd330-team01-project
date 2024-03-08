@@ -2,7 +2,9 @@ import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item, index) => cartItemTemplate(item, index));
+  const htmlItems = cartItems.map((item, index) =>
+    cartItemTemplate(item, index),
+  );
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   attachRemoveEventListeners();
 }
@@ -29,7 +31,7 @@ function cartItemTemplate(item, index) {
 
 function attachRemoveEventListeners() {
   const removeButtons = document.querySelectorAll(".remove-item");
-  removeButtons.forEach(button => {
+  removeButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
       const index = event.target.getAttribute("data-index");
       removeItemFromCart(index);
