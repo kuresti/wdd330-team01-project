@@ -44,7 +44,7 @@ async function checkCartItems() {
     const cartItems = await getLocalStorage("so-cart");
 
     if (cartItems && cartItems.length > 0) {
-      document.querySelector(".cart-footer").classList.toggle("show");
+      document.querySelector(".cart-footer").classList.remove("hide");
       let total = 0;
       for (let i = 0; i < cartItems.length; i++) {
         total += cartItems[i].FinalPrice;
@@ -52,18 +52,20 @@ async function checkCartItems() {
       const element = document.querySelector(".cart-total");
       element.textContent = `Total: $${total}`;
     } else {
-      document.querySelector(".cart-footer").classList.toggle("hide");
+      document.querySelector(".cart-footer").classList.add("hide");
     }
   } catch (error) {
     console.error("Error checking cart for items:", error);
   }
 }
 
+
 function removeItemFromCart(index) {
   let cartItems = getLocalStorage("so-cart");
   cartItems.splice(index, 1); // Remove item from the array
   setLocalStorage("so-cart", cartItems); // Update local storage
   renderCartContents(); // Re-render the cart
+  checkCartItems(); // Update total after removing item
 }
 
 renderCartContents();
