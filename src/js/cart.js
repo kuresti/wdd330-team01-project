@@ -59,7 +59,6 @@ async function checkCartItems() {
   }
 }
 
-
 function removeItemFromCart(index) {
   let cartItems = getLocalStorage("so-cart");
   cartItems.splice(index, 1); // Remove item from the array
