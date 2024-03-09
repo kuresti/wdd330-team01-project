@@ -25,7 +25,7 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-renderCartContents();
+
 
 async function checkCartItems() {
   try {
@@ -47,4 +47,5 @@ async function checkCartItems() {
   }
 }
 
+renderCartContents();
 checkCartItems();
