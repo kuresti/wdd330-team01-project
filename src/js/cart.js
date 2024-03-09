@@ -39,6 +39,26 @@ function attachRemoveEventListeners() {
   });
 }
 
+async function checkCartItems() {
+  try {
+    const cartItems = await getLocalStorage("so-cart");
+
+    if (cartItems && cartItems.length > 0) {
+      document.querySelector(".cart-footer").classList.toggle("show");
+      let total = 0;
+      for (let i = 0; i < cartItems.length; i++) {
+        total += cartItems[i].FinalPrice;
+      }
+      const element = document.querySelector(".cart-total");
+      element.textContent = `Total: $${total}`;
+    } else {
+      document.querySelector(".cart-footer").classList.toggle("hide");
+    }
+  } catch (error) {
+    console.error("Error checking cart for items:", error);
+  }
+}
+
 function removeItemFromCart(index) {
   let cartItems = getLocalStorage("so-cart");
   cartItems.splice(index, 1); // Remove item from the array
@@ -47,3 +67,4 @@ function removeItemFromCart(index) {
 }
 
 renderCartContents();
+checkCartItems();
