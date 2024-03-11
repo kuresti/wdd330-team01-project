@@ -10,10 +10,7 @@ const productList = new ProductListing(
   productListElement,
 );
 
-
 loadHeaderFooter();
 
 // Initialize ProductListing to fetch data and render list
 productList.init();
-
-
