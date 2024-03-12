@@ -1,5 +1,8 @@
 import ProductData from "./ProductData.mjs";
 import ProductListing from "./ProductList.mjs";
+import { loadHeaderFooter } from "./utils.mjs";
+
+loadHeaderFooter();
 
 const productData = new ProductData("tents");
 const productListElement = document.querySelector(".product-list"); // Make sure this element exists

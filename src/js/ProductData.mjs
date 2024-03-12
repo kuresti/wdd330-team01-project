@@ -10,7 +10,7 @@ export default class ProductData {
   constructor(category) {     
     this.category = category;
     this.path = `/json/${this.category}.json`;
-    console.log(this.path);
+    // console.log(this.path);
   }
   async getData() {
     return fetch(this.path)
