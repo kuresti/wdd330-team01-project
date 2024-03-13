@@ -121,6 +121,7 @@ button {
 }
 .products {
   padding: 0.5em;
+  text-align: center;
 }
 .product-list {
   display: flex;
@@ -210,6 +211,26 @@ button {
 .cart-footer.show {
   display: block;
 }
+
+/*Start of product-icons styles*/
+section.product-icons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+figure {
+  text-align: center;
+  margin: 0;
+}
+
+figure img{
+  width: 80px;
+  height: auto;
+}
+
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
