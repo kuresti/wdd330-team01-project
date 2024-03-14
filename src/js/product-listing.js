@@ -8,12 +8,11 @@ const category = getParams("category");
 //first create an instance of our ProductData class.
 const dataSource = new ProductData();
 //then get the element we want the product list to render in
-const listElement = document.querySelector(".product-list");
+const element = document.querySelector(".product-list");
 //then create an instance f our ProductList class and send it the correct information.
-const myList = new ProductListing(category, dataSource, listElement);
+const listing = new ProductListing(category, dataSource, element);
 //finally call the init method to show our products
-myList.init();
-
+listing.init();
 
 // const productData = new ProductData("tents");
 // const productListElement = document.querySelector(".product-list"); // Make sure this element exists

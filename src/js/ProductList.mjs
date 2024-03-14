@@ -4,7 +4,7 @@ function productCardTemplate(product) {
     return `<li class="product-card">
     <a href="product_listing/index.html?product=${product.Id}">
     <img
-      src="${product.Image}"
+      src="${product.Images.PrimaryMedium}"
       alt="Image of ${product.Name}"
     />
     <h3 class="card__brand">${product.Brand.Name}</h3>
@@ -21,20 +21,23 @@ export default class ProductListing {
 }
 
     async init() {
+       
         const list = await this.dataSource.getData(this.category);
-        const filteredList = this.filterTents(list);
-        this.renderList(filteredList);
+        
+        this.renderList(list);
+        
+        document.querySelector(".title").innerHTML = this.category;
     }
 
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
       }
 
-      filterTents(products) {
-        const tentIds = ['880RR', '985RF', '985PR', '344YJ'];
+      // filterTents(products) {
+      //   const tentIds = ['880RR', '985RF', '985PR', '344YJ'];
     
-        const filteredTents = products.filter(product => tentIds.includes(product.Id));
+      //   const filteredTents = products.filter(product => tentIds.includes(product.Id));
         
-        return filteredTents;
-      }
+      //   return filteredTents;
+      // }
 }
