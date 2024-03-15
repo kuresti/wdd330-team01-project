@@ -42,12 +42,16 @@ export default class ProductDetails {
 
       addToCart() {
 
-        let items = getLocalStorage("so-cart");
-        if (!items) {
-            items = [];
-        }
+        const items = getLocalStorage("so-cart") || [];
         items.push(this.product);
         setLocalStorage("so-cart", items);
+
+        // let items = getLocalStorage("so-cart");
+        // if (!items) {
+        //     items = [];
+        // }
+        // items.push(this.product);
+        // setLocalStorage("so-cart", items);
     }
 
 
