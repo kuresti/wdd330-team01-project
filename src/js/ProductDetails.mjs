@@ -40,16 +40,23 @@ export default class ProductDetails {
           .addEventListener("click", this.addToCart.bind(this));
       }
 
-      addToCart() {
+    addToCart() {
 
-        const items = getLocalStorage("so-cart") || [];
-        items.push(this.product);
-        setLocalStorage("so-cart", items);
-
-    }
-
-
-      renderProductDetails(selector) {
+        const cartItems = getLocalStorage("so-cart") || [];
+        const productIndex = cartItems.findIndex((item)=> item.Id === this.product.Id);
+        
+        // If product is already in the cart, increment its quantity
+        if (productIndex !== -1) {
+            cartItems[productIndex].quantity = (cartItems[productIndex].quantity || 0) + 1; // if quntity = null/0/undefined/Nan, use 1 instead
+        } else {
+            // If product is not in the cart, add it with quantity of 1
+            this.product.quantity = 1;
+            cartItems.push(this.product);
+            }
+        setLocalStorage("so-cart", cartItems);
+        }
+        
+    renderProductDetails(selector) {
         const element = document.querySelector(selector);
         element.insertAdjacentHTML(
           "afterBegin",
