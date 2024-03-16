@@ -1,6 +1,4 @@
-
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
-
 
 function productDetailsTemplate(product){
     return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
@@ -26,6 +24,8 @@ export default class ProductDetails {
         this.productId = productId;
         this.product = {};
         this.dataSource = dataSource;
+        this.cartCounter = document.getElementById('cart-counter'); // Reference to the cart counter element
+        console.log(this.cartCounter);
     }
     
     async init() {
@@ -46,12 +46,16 @@ export default class ProductDetails {
         items.push(this.product);
         setLocalStorage("so-cart", items);
 
-        // let items = getLocalStorage("so-cart");
-        // if (!items) {
-        //     items = [];
-        // }
-        // items.push(this.product);
-        // setLocalStorage("so-cart", items);
+        // Update cart counter
+        this.updateCartCounter();
+        console.log(this.updateCartCounter());
+    }
+
+    updateCartCounter() {
+        const cartItems = getLocalStorage("so-cart") || [];
+        if (this.cartCounter) {
+            this.cartCounter.textContent = cartItems.length;
+        }
     }
 
 
@@ -62,8 +66,4 @@ export default class ProductDetails {
           productDetailsTemplate(this.product)
         );
     }
-}   
-    
-    
-
-  
+}
