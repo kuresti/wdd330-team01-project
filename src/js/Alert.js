@@ -8,7 +8,7 @@ function convertToJson(res) {
 
 export default class Alert {
   async getAlertData() {
-    const response = await fetch("../json/alert.json");
+    const response = await fetch("json/alert.json");
     const data = await convertToJson(response);
     return data;
   }
@@ -18,7 +18,7 @@ export default class Alert {
     p.textContent = msg.message;
     p.style.backgroundColor = msg.background;
     p.style.color = msg.color;
-    
+    return p;
   }
 
   async displayAlert() {
@@ -26,11 +26,11 @@ export default class Alert {
     const alertElement = document.createElement("section");
     alertElement.classList.add("alert-list");
     const messages = await this.getAlertData();
-    messages.map((msg) => {
+    messages.forEach((msg) => {
       const alertMsg = this.renderMessage(msg);
-      alertElement.appendChild(alertMsg);
-      main.appendChild(alertElement);
-    })
+      if (alertMsg) alertElement.appendChild(alertMsg);
+    });
+    main.prepend(alertElement);
   }
 }
 const alert = new Alert();
