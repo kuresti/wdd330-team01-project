@@ -332,6 +332,17 @@ button {
   grid-column: 3;
 }
 
+form.cart-card__quantity-controls {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.value-button#quantity-decrement {
+  padding-bottom: 20px;
+}
+
 input.quantity {
   height: 30px;
   width: 30px;
