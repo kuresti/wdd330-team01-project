@@ -46,12 +46,6 @@ export default class ProductDetails {
         items.push(this.product);
         setLocalStorage("so-cart", items);
 
-        // let items = getLocalStorage("so-cart");
-        // if (!items) {
-        //     items = [];
-        // }
-        // items.push(this.product);
-        // setLocalStorage("so-cart", items);
     }
 
 
