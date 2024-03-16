@@ -25,7 +25,13 @@ function cartItemTemplate(item, index) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
+  <form class"car-card__quantity-controls">
+  <label for="quantity" class="quantity">Quantity</label>
+  <div class="value-button" id="quantity-increment" value="Increase Value">+</div>
+  <input type="number" class="quantity" name="quantity" value="1" min="1" readonly>
+  <div class="value-button" id="quantity-decrement" value="Decrease Value">-</div>
+  </form>
+
   <p class="cart-card__price">$${item.FinalPrice}</p>
   <button class="remove-item" data-index="${index}">X</button>
 </li>`;
