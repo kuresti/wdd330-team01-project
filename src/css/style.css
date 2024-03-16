@@ -331,6 +331,16 @@ button {
   grid-row: 2;
   grid-column: 3;
 }
+
+input.quantity {
+  height: 30px;
+  width: 30px;
+  border: 1px solid var(--dark-grey);
+  border-radius: 5px;
+  text-align: center;
+  padding: 1px 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 /* Start cart-footer styles*/
 
 .cart-footer.hide {
