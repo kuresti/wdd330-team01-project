@@ -14,22 +14,23 @@ export default class Alert {
   }
 
   renderMessage(msg) {
-    const main = document.querySelector("main");
-    const section = document.createElement("section");
-    section.classList.add("alert-list");
     const p = document.createElement("p");
     p.textContent = msg.message;
     p.style.backgroundColor = msg.background;
     p.style.color = msg.color;
-    section.appendChild(p);
-    main.prepend(section);
+    
   }
 
   async displayAlert() {
+    const main = document.querySelector("main");
     const alertElement = document.createElement("section");
     alertElement.classList.add("alert-list");
     const messages = await this.getAlertData();
-    messages.map((msg) => this.renderMessage(msg));
+    messages.map((msg) => {
+      const alertMsg = this.renderMessage(msg);
+      alertElement.appendChild(alertMsg);
+      main.appendChild(alertElement);
+    })
   }
 }
 const alert = new Alert();
