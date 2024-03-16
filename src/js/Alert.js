@@ -14,7 +14,7 @@ export default class Alert {
   }
 
   renderMessage(msg) {
-    const main = document.querySelector("main")
+    const main = document.querySelector("main");
     const section = document.createElement("section");
     section.classList.add("alert-list");
     const p = document.createElement("p");
@@ -29,8 +29,8 @@ export default class Alert {
     const alertElement = document.createElement("section");
     alertElement.classList.add("alert-list");
     const messages = await this.getAlertData();
-    messages.map((msg)=> this.renderMessage(msg));
-    }
+    messages.map((msg) => this.renderMessage(msg));
+  }
 }
 const alert = new Alert();
 alert.displayAlert();
