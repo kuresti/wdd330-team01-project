@@ -47,10 +47,10 @@ export default class ProductDetails {
         
         // If product is already in the cart, increment its quantity
         if (productIndex !== -1) {
-            cartItems[productIndex].quantity = (cartItems[productIndex].quantity || 0) + 1; // if quntity = null/0/undefined/Nan, use 1 instead
+            cartItems[productIndex].Quantity = (cartItems[productIndex].Quantity || 0) + 1; // if quntity = null/0/undefined/Nan, use 1 instead
         } else {
             // If product is not in the cart, add it with quantity of 1
-            this.product.quantity = 1;
+            this.product.Quantity = 1;
             cartItems.push(this.product);
             }
         setLocalStorage("so-cart", cartItems);
