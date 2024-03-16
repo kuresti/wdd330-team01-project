@@ -30,11 +30,4 @@ export default class ProductListing {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
       }
 
-      // filterTents(products) {
-      //   const tentIds = ['880RR', '985RF', '985PR', '344YJ'];
-    
-      //   const filteredTents = products.filter(product => tentIds.includes(product.Id));
-        
-      //   return filteredTents;
-      // }
 }
