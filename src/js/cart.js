@@ -53,42 +53,33 @@ function attachRemoveEventListeners() {
 
 function attachIncrementEventListeners() {
   document.addEventListener("DOMContentLoaded", () => {
-  const incrementButtons = document.querySelectorAll(".quantity-increment");
-  incrementButtons.forEach((increment) => {
-    increment.addEventListener("click", () => {
-      increment.nextElementSibling.textContent = parseInt(increment.nextElementSibling.textContent)+1;
+    const incrementButtons = document.querySelectorAll(".quantity-increment");
+    incrementButtons.forEach((increment) => {
+      increment.addEventListener("click", () => {
+        increment.nextElementSibling.textContent =
+          parseInt(increment.nextElementSibling.textContent) + 1;
 
-      getTotal();
-  });
-  
-  
-    
-      
-    });
-  });
-  }
-
-  function attachDecrementEventListeners(){
-    document.addEventListener("DOMContentLoaded", () => {
-      const decrementButtons = document.querySelectorAll(".quantity-decrement");
-      decrementButtons.forEach((decrement) => {
-        decrement.addEventListener("click", () => {
-          if (parseInt(decrement.previousElementSibling.textContent)>1) {
-            decrement.previousElementSibling.textContent = parseInt(decrement.previousElementSibling.textContent)-1;
-
-            getTotal();
-
-    }
-    
-    
-      
-        
-          
-        });
+        getTotal();
       });
     });
-  }
+  });
+}
 
+function attachDecrementEventListeners() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const decrementButtons = document.querySelectorAll(".quantity-decrement");
+    decrementButtons.forEach((decrement) => {
+      decrement.addEventListener("click", () => {
+        if (parseInt(decrement.previousElementSibling.textContent) > 1) {
+          decrement.previousElementSibling.textContent =
+            parseInt(decrement.previousElementSibling.textContent) - 1;
+
+          getTotal();
+        }
+      });
+    });
+  });
+}
 
 async function getTotal() {
   try {
@@ -96,18 +87,17 @@ async function getTotal() {
 
     if (cartItems && cartItems.length > 0) {
       document.querySelector(".cart-footer").classList.remove("hide");
-      
+
       let total = 0;
       let quantities = document.querySelectorAll(".quantity");
       cartItems.forEach((item, i) => {
         total += item.FinalPrice * parseInt(quantities[i].outerText);
-        console.log(quantities);
-      })
+      });
       // for (let i = 0; i < cartItems.length; i++) {
       //   total += (cartItems[i].FinalPrice) * parseInt(quantity[i].innerHTML);
       // }
-       const element = document.querySelector(".cart-total");
-       element.textContent = `Total: $${total}`;
+      const element = document.querySelector(".cart-total");
+      element.textContent = `Total: $${total}`;
     } else {
       document.querySelector(".cart-footer").classList.add("hide");
     }
