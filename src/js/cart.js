@@ -27,7 +27,7 @@ function cartItemTemplate(item, index) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <div class"cart-card__quantity-controls">
+  <div class="cart-card__quantity-controls">
   <button type="button" class="quantity-increment" data-index="${index}">+</button>
   <span class="quantity">1</span>
   <button type="button" class="quantity-decrement">-</button>
@@ -52,38 +52,62 @@ function attachRemoveEventListeners() {
 }
 
 function attachIncrementEventListeners() {
+  document.addEventListener("DOMContentLoaded", () => {
   const incrementButtons = document.querySelectorAll(".quantity-increment");
   incrementButtons.forEach((increment) => {
     increment.addEventListener("click", () => {
-      increment.nextElementSibling.innerHTML = parseInt(increment.nextElementSibling.innerHTML)+1;
-    })
-  })
+      increment.nextElementSibling.textContent = parseInt(increment.nextElementSibling.textContent)+1;
+
+      getTotal();
+  });
+  
+  
+    
+      
+    });
+  });
   }
 
   function attachDecrementEventListeners(){
-    const decrementButtons = document.querySelectorAll(".quantity-decrement");
-    decrementButtons.forEach((decrement) => {
-      decrement.addEventListener("click", () => {
-        if (parseInt(decrement.previousElementSibling.innerHTML)>1) {
-          decrement.previousElementSibling.innerHTML = parseInt(decrement.previousElementSibling.innerHTML)-1;
-        }
+    document.addEventListener("DOMContentLoaded", () => {
+      const decrementButtons = document.querySelectorAll(".quantity-decrement");
+      decrementButtons.forEach((decrement) => {
+        decrement.addEventListener("click", () => {
+          if (parseInt(decrement.previousElementSibling.textContent)>1) {
+            decrement.previousElementSibling.textContent = parseInt(decrement.previousElementSibling.textContent)-1;
+
+            getTotal();
+
+    }
+    
+    
+      
+        
+          
+        });
       });
     });
   }
 
 
-async function checkCartItems() {
+async function getTotal() {
   try {
     const cartItems = await getLocalStorage("so-cart");
 
     if (cartItems && cartItems.length > 0) {
       document.querySelector(".cart-footer").classList.remove("hide");
+      
       let total = 0;
-      for (let i = 0; i < cartItems.length; i++) {
-        total += cartItems[i].FinalPrice;
-      }
-      const element = document.querySelector(".cart-total");
-      element.textContent = `Total: $${total}`;
+      let quantities = document.querySelectorAll(".quantity");
+      cartItems.forEach((item, i) => {
+        total += item.FinalPrice * parseInt(quantities[i].outerText);
+        console.log(quantities);
+      })
+      // for (let i = 0; i < cartItems.length; i++) {
+      //   total += (cartItems[i].FinalPrice) * parseInt(quantity[i].innerHTML);
+      // }
+       const element = document.querySelector(".cart-total");
+       element.textContent = `Total: $${total}`;
     } else {
       document.querySelector(".cart-footer").classList.add("hide");
     }
@@ -97,9 +121,9 @@ function removeItemFromCart(index) {
   cartItems.splice(index, 1); // Remove item from the array
   setLocalStorage("so-cart", cartItems); // Update local storage
   renderCartContents(); // Re-render the cart
-  checkCartItems(); // Update total after removing item
+  getTotal(); // Update total after removing item
 }
 
 renderCartContents();
-checkCartItems();
+getTotal();
 loadHeaderFooter();
