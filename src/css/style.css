@@ -339,18 +339,27 @@ form.cart-card__quantity-controls {
     align-items: center;
 }
 
-.value-button#quantity-decrement {
-  padding-bottom: 20px;
-}
-
-input.quantity {
+span.quantity {
   height: 30px;
-  width: 30px;
+  width: 50px;
   border: 1px solid var(--dark-grey);
   border-radius: 5px;
   text-align: center;
   padding: 1px 3px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button.quantity-increment,
+button.quantity-decrement {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  background-color: white;
+  color: black;
+}
+
+button.quantity-decrement {
+  padding-bottom: 50px;
 }
 /* Start cart-footer styles*/
 
