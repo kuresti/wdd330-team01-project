@@ -12,6 +12,7 @@ function renderCartContents() {
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   attachRemoveEventListeners();
   attachIncrementEventListeners();
+  attachDecrementEventListeners();
 }
 
 function cartItemTemplate(item, index) {
@@ -57,6 +58,17 @@ function attachIncrementEventListeners() {
       increment.nextElementSibling.innerHTML = parseInt(increment.nextElementSibling.innerHTML)+1;
     })
   })
+  }
+
+  function attachDecrementEventListeners(){
+    const decrementButtons = document.querySelectorAll(".quantity-decrement");
+    decrementButtons.forEach((decrement) => {
+      decrement.addEventListener("click", () => {
+        if (parseInt(decrement.previousElementSibling.innerHTML)>1) {
+          decrement.previousElementSibling.innerHTML = parseInt(decrement.previousElementSibling.innerHTML)-1;
+        }
+      });
+    });
   }
 
 
