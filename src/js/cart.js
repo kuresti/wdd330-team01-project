@@ -11,6 +11,8 @@ function renderCartContents() {
   );
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   attachRemoveEventListeners();
+  attachIncrementEventListeners();
+  attachDecrementEventListeners();
 }
 
 function cartItemTemplate(item, index) {
@@ -25,7 +27,13 @@ function cartItemTemplate(item, index) {
     <h2 class="card__name">${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
-  <p class="cart-card__quantity">qty: 1</p>
+  <div class="cart-card__quantity-controls">
+  <button type="button" class="quantity-increment" data-index="${index}">+</button>
+  <span class="quantity">1</span>
+  <button type="button" class="quantity-decrement">-</button>
+  
+  </div>
+
   <p class="cart-card__price">$${item.FinalPrice}</p>
   <button class="remove-item" data-index="${index}">X</button>
 </li>`;
@@ -43,16 +51,51 @@ function attachRemoveEventListeners() {
   });
 }
 
-async function checkCartItems() {
+function attachIncrementEventListeners() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const incrementButtons = document.querySelectorAll(".quantity-increment");
+    incrementButtons.forEach((increment) => {
+      increment.addEventListener("click", () => {
+        increment.nextElementSibling.textContent =
+          parseInt(increment.nextElementSibling.textContent) + 1;
+
+        getTotal();
+      });
+    });
+  });
+}
+
+function attachDecrementEventListeners() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const decrementButtons = document.querySelectorAll(".quantity-decrement");
+    decrementButtons.forEach((decrement) => {
+      decrement.addEventListener("click", () => {
+        if (parseInt(decrement.previousElementSibling.textContent) > 1) {
+          decrement.previousElementSibling.textContent =
+            parseInt(decrement.previousElementSibling.textContent) - 1;
+
+          getTotal();
+        }
+      });
+    });
+  });
+}
+
+async function getTotal() {
   try {
     const cartItems = await getLocalStorage("so-cart");
 
     if (cartItems && cartItems.length > 0) {
       document.querySelector(".cart-footer").classList.remove("hide");
+
       let total = 0;
-      for (let i = 0; i < cartItems.length; i++) {
-        total += cartItems[i].FinalPrice;
-      }
+      let quantities = document.querySelectorAll(".quantity");
+      cartItems.forEach((item, i) => {
+        total += item.FinalPrice * parseInt(quantities[i].outerText);
+      });
+      // for (let i = 0; i < cartItems.length; i++) {
+      //   total += (cartItems[i].FinalPrice) * parseInt(quantity[i].innerHTML);
+      // }
       const element = document.querySelector(".cart-total");
       element.textContent = `Total: $${total}`;
     } else {
@@ -68,9 +111,9 @@ function removeItemFromCart(index) {
   cartItems.splice(index, 1); // Remove item from the array
   setLocalStorage("so-cart", cartItems); // Update local storage
   renderCartContents(); // Re-render the cart
-  checkCartItems(); // Update total after removing item
+  getTotal(); // Update total after removing item
 }
 
 renderCartContents();
-checkCartItems();
+getTotal();
 loadHeaderFooter();
