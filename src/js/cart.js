@@ -11,6 +11,7 @@ function renderCartContents() {
   );
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
   attachRemoveEventListeners();
+  attachIncrementEventListeners();
 }
 
 function cartItemTemplate(item, index) {
@@ -26,7 +27,7 @@ function cartItemTemplate(item, index) {
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <div class"cart-card__quantity-controls">
-  <button type="button" class="quantity-increment">+</button>
+  <button type="button" class="quantity-increment" data-index="${index}">+</button>
   <span class="quantity">1</span>
   <button type="button" class="quantity-decrement">-</button>
   
@@ -48,6 +49,16 @@ function attachRemoveEventListeners() {
     });
   });
 }
+
+function attachIncrementEventListeners() {
+  const incrementButtons = document.querySelectorAll(".quantity-increment");
+  incrementButtons.forEach((increment) => {
+    increment.addEventListener("click", () => {
+      increment.nextElementSibling.innerHTML = parseInt(increment.nextElementSibling.innerHTML)+1;
+    })
+  })
+  }
+
 
 async function checkCartItems() {
   try {
