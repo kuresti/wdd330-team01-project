@@ -53,8 +53,8 @@ function cartItemTemplate(item, index) {
     <p class="cart-card__color">${item.Colors[0].ColorName}</p>
     <div class="cart-card__quantity-controls">
       <button type="button" class="quantity-increment" data-index="${index}">+</button>
-      <span class="quantity">1</span>
-      <button type="button" class="quantity-decrement">-</button>
+      <span class="quantity">${item.Quantity}</span>
+      <button type="button" class="quantity-decrement" data-index="${index}">-</button>
     </div>
     <p class="cart-card__price">$${item.FinalPrice}</p>
     <button class="remove-item" data-index="${index}">X</button>
@@ -82,15 +82,15 @@ async function getTotal() {
       document.querySelector(".cart-footer").classList.remove("hide");
 
       let total = 0;
-      let quantities = document.querySelectorAll(".quantity");
-      cartItems.forEach((item, i) => {
-        total += item.FinalPrice * parseInt(quantities[i].outerText);
+      // let quantities = document.querySelectorAll(".quantity");
+      cartItems.forEach((item) => {
+        total += item.FinalPrice * item.Quantity;
       });
       // for (let i = 0; i < cartItems.length; i++) {
       //   total += (cartItems[i].FinalPrice) * parseInt(quantity[i].innerHTML);
       // }
       const element = document.querySelector(".cart-total");
-      element.textContent = `Total: $${total}`;
+      element.textContent = `Total: $${total.toFixed(2)}`;
     } else {
       document.querySelector(".cart-footer").classList.add("hide");
     }
@@ -112,6 +112,8 @@ function updateCartItemsQuantity(index, newQuantity) {
   if (cartItems && cartItems.length > index) {
     cartItems[index].Quantity = newQuantity //update the quantity in localStorage
     setLocalStorage("so-cart", cartItems);
+    renderCartContents(); //re-render the cart to reflect the updated quantity
+    getTotal(); //Recalculate the total
   }
 }
 
