@@ -1,0 +1,17 @@
+[
+  {
+    "message": "This is test message 1",
+    "background": "darkblue",
+    "color": "white"
+  },
+  {
+    "message": "This is test message 2",
+    "background": "darkred",
+    "color": "white"
+  },
+  {
+    "message": "This is test message 3",
+    "background": "darkgrey",
+    "color": "white"
+  }
+]

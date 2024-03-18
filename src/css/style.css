@@ -370,6 +370,14 @@ button.quantity-decrement {
 .cart-footer.show {
   display: block;
 }
+/* End cart-footer styles */
+
+/* Start alert message styles */
+.alert-list p {
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+}
 
 @media screen and (min-width: 500px) {
   body {
