@@ -20,24 +20,32 @@ function quantityEventListener() {
     productList.addEventListener("click", (event) => {
       const target = event.target;
 
-      if (target.classList.contains("quantity-increment") || target.classList.contains("quantity-decrement")) {
+      if (
+        target.classList.contains("quantity-increment") ||
+        target.classList.contains("quantity-decrement")
+      ) {
         const index = target.getAttribute("data-index");
-        const quantityElem = target.closest(".cart-card__quantity-controls").querySelector(".quantity");
+        const quantityElem = target
+          .closest(".cart-card__quantity-controls")
+          .querySelector(".quantity");
         let quantity = parseInt(quantityElem.textContent);
-        
+
         if (target.classList.contains("quantity-increment")) {
           quantity += 1;
-        } else if (target.classList.contains("quantity-decrement") && quantity > 1) {
+        } else if (
+          target.classList.contains("quantity-decrement") &&
+          quantity > 1
+        ) {
           quantity -= 1;
         }
 
         quantityElem.textContent = quantity;
-        updateCartItemsQuantity(index, quantity);  // update the quantity in localStorage
+        updateCartItemsQuantity(index, quantity); // update the quantity in localStorage
       }
     });
   });
 }
-  
+
 function cartItemTemplate(item, index) {
   const newItem = `
   <li class="cart-card divider">
@@ -110,7 +118,7 @@ function removeItemFromCart(index) {
 function updateCartItemsQuantity(index, newQuantity) {
   let cartItems = getLocalStorage("so-cart");
   if (cartItems && cartItems.length > index) {
-    cartItems[index].Quantity = newQuantity //update the quantity in localStorage
+    cartItems[index].Quantity = newQuantity; //update the quantity in localStorage
     setLocalStorage("so-cart", cartItems);
     renderCartContents(); //re-render the cart to reflect the updated quantity
     getTotal(); //Recalculate the total
