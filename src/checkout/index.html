@@ -17,8 +17,36 @@
     <main class="divider">
       <section class="products">
         <h2>Review & Place your Order</h2>
-        
+        <form action="/submit_form" method="POST" autocomplete="disabled">
+          <fieldset class="customerName">
+            <legend class="customerInfo">Customer Name</legend>
+            <label class="top">First Name*<input type="text" name="fname" required></label>
+            <label class="top">Last Name*<input type="text" name="lname" required></label>
+          </fieldset>
+          <fieldset class="shipping-address">
+            <legend class="customerInfo">Customer Address</legend>
+            <label class="middle">Street Address*<input type="text" name="stree-address" required></label>
+            <label class="middle">City*<input type="text" name="city" required></label>
+            <label class="middle">State*<input type="text" name="state" required></label>
+            <label class="middle">Zip Code<input type="number" name="zip-code" required></label>
+          </fieldset>
+          <fieldset class="customerPayment">
+            <legend class="customerInfo">Customer Payment</legend>
+            <label class="bottom">Credit Card Nubmer*<input type="number" name="card-number" required></label>
+            <label class="bottom">Exipration Date*<input type="month" name="exp-date" min="2024-03" max="2035-12" required></label>
+            <label class="bottom">Security Code*<input type="number" name="sec-code" required></label>
+          </fieldset>
+          <label class="submit"><input type="submit" class="submit" value="Checkout"></label>
+        </form>
+        <div class="order-summary">
+        <h2>Order Summary</h2>
+        <p>Subtotal:</p>
+        <p>Shipping Estimate:</p>
+        <p>Tax:</p>
+        <p>Order Total:</p>
+      </div>
       </section>
+
     </main>
 
     <footer id="main-footer"></footer>
