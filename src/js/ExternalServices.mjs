@@ -1,4 +1,4 @@
-const baseURL = "https://wdd330-backend.onrender.com:3000/checkout";
+const baseURL = "https://wdd330-backend.onrender.com:3000/";
 
 async function convertToJson(res) {
   const data = await res.json()
@@ -30,10 +30,10 @@ export default class ExternalServices {
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "applicaton/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(payload)
     }
-      fetch(baseURL, options);
+    return await fetch(baseURL + "checkout/", options).then(convertToJson);
   }
 }
