@@ -9,7 +9,6 @@ function formDataToJSON(formElement) {
     const formData = new FormData(formElement);
 
     const formDataJSONObj = Object.fromEntries(formData.entries());
-    console.log(formDataJSONObj);
 
 
 
@@ -17,22 +16,23 @@ function formDataToJSON(formElement) {
     
     // const formDataJSONObj ={};
     // formData.forEach((value, key) => (formDataJSONObj[key] = value));
-
     return formDataJSONObj;
 
 }
 
 function packageItems(items) {
     const simplifiedItems = items.map((item) => {
-        console.log(item)
+        console.log("item: ", item);
         return {
             id: item.Id,
             price: item.FinalPrice,
             name: item.Name,
-            quantity: 1,
-        };
-    });
-    return simplifiedItems
+            quantity: item.Quantity,
+        }
+        });
+    
+    return simplifiedItems;
+    
 }
 
 
@@ -50,7 +50,6 @@ export default class CheckoutProcess {
 
     init(){
         this.list = getLocalStorage(this.key);
-        // console.log(this.list);
         this.calculateItemSummary();
     }
 
@@ -78,7 +77,6 @@ export default class CheckoutProcess {
         //along with the cart total to figure out the order total
         this.shipping = 10 + (2 * (this.quantity - 1));
         this.tax = (parseFloat(this.itemTotal) * .06).toFixed(2);
-        console.log(this.tax);
        
         this.orderTotal =  (parseFloat(this.itemTotal) + parseFloat(this.tax) + parseFloat(this.shipping)).toFixed(2);
 
@@ -109,10 +107,15 @@ export default class CheckoutProcess {
         json.tax = this.tax;
         json.shipping = this.shipping;
         json.items = packageItems(this.list);
-
-        const response = await services.checkout(json);
-        console.log(response);
-
+        console.log(json);
+        
+        try {
+            const response = await services.checkout(json);
+            console.log(response);    
+        }catch (err) {
+            console.log(err);
+        }
+        
     }
     
 }
