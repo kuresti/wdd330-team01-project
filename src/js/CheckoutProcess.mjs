@@ -50,7 +50,7 @@ export default class CheckoutProcess {
 
     init(){
         this.list = getLocalStorage(this.key);
-        console.log(this.list);
+        // console.log(this.list);
         this.calculateItemSummary();
     }
 
@@ -65,9 +65,9 @@ export default class CheckoutProcess {
        const itemNumberElement = document.querySelector(this.outputSelector + " #num-items");
 
        const itemsQuantity = this.list.map((item) => item.Quantity);
-       this.quantity = itemsQuantity.reduce((sum, itemsQuantity) => sum + itemsQuantity);
+       this.quantity = itemsQuantity.reduce((sum, quantity) => sum + quantity);
        const amounts = this.list.map((item) => item.FinalPrice * item.Quantity);
-       this.itemTotal = amounts.reduce((sum, amounts) => sum + amounts, 0);
+       this.itemTotal = amounts.reduce((sum, itemPrice) => sum + itemPrice, 0);
        
        itemNumberElement.innerText = this.quantity;
        summaryElement.innerText = "$" + this.itemTotal.toFixed(2);
@@ -76,8 +76,9 @@ export default class CheckoutProcess {
     calculateOrdertotal() {
         //calculate the shipping and tax amounts. then use them to 
         //along with the cart total to figure out the order total
-        this.shipping = 10 +(2 * (this.quantity -1));
+        this.shipping = 10 + (2 * (this.quantity - 1));
         this.tax = (parseFloat(this.itemTotal) * .06).toFixed(2);
+        console.log(this.tax);
        
         this.orderTotal =  (parseFloat(this.itemTotal) + parseFloat(this.tax) + parseFloat(this.shipping)).toFixed(2);
 
