@@ -1,38 +1,46 @@
-const baseURL = "http://server-nodejs.cit.byui.edu:3000/";
+//Use this one for production deploy.
+const baseURL =  'https://wdd330-backend.onrender.com/' 
+//Use this one for local development.
+//const baseURL = 'http://server-nodejs.cit.byui.edu:3000/'
 
-function convertToJson(res) {
+
+async function convertToJson(res) {
+  let resJ = await res.json();
   if (res.ok) {
-    return res.json();
+    return resJ;
   } else {
-    throw new Error("Bad Response");
+    throw { name: 'servicesError', message: resJ };
   }
 }
 
 export default class ExternalServices {
-  constructor(category) {     
-    //this.category = category;
-    //this.path = `../json/${this.category}.json`;
+  constructor() {
   }
   async getData(category) {
-    const response = await fetch(`${baseURL}products/search/${category}`);
+    const response = await fetch(baseURL + `products/search/${category}`);
     const data = await convertToJson(response);
     return data.Result;
-  }
-
+}
+  
   async findProductById(id) {
-    const response = await fetch(`${baseURL}product/${id}`);
+    const response = await fetch(baseURL + `product/${id}`);
     const data = await convertToJson(response);
     return data.Result;
   }
-
+    async getAll() {
+    const product = this.getData;
+    
+    return product;
+  }
+  
   async checkout(payload) {
     const options = {
       method: "POST",
       headers: {
-        "Content-Type": "applicaton/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(payload)
-    }
-      fetch(baseURL, options);
+      body: JSON.stringify(payload),
+    };
+    return await fetch(baseURL + "checkout/", options).then(convertToJson);
   }
 }
