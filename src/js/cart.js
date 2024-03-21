@@ -82,7 +82,7 @@ function attachRemoveEventListeners() {
   });
 }
 
-async function getTotal() {
+export async function getTotal() {
   try {
     const cartItems = await getLocalStorage("so-cart");
 

@@ -62,6 +62,7 @@
 form fieldset {
   margin: 2rem 0rem;
   border: var(--border);
+  max-width: 500px;
   border-radius: 10px;
   padding: 0.5rem 2%;
 }
@@ -73,7 +74,8 @@ form label.top {
   font-size: var(--fontsize);
 }
 
-form label.top input {
+form label.top input,
+form label.middle input {
   --webkit-appearance: none;
   display: block;
   font-size: var(--fontsize);
@@ -86,11 +88,13 @@ form label.top input {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-form label.top input:required {
+form label.top input:required,
+form label.middle input:required {
   border-bottom: red solid 4px;
 }
 
-form label.top input:required:valid {
+form label.top input:required:valid,
+form label.middle input:required:valid {
   border-bottom: green solid 4px;
 }
 
@@ -366,6 +370,10 @@ button.quantity-decrement {
 button.quantity-decrement {
   padding-bottom: 50px;
 }
+
+a.checkout-page {
+  text-decoration: none;
+}
 /* Start cart-footer styles*/
 
 .cart-footer.hide {
@@ -381,6 +389,63 @@ button.quantity-decrement {
 .alert-list p {
   margin: 0;
   padding: 5px;
+  text-align: center;
+}
+
+/*Start checkout cart styles*/
+.divider.checkout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main,
+h2.divider.checkout {
+  text-align: center;
+}
+section.checkout-form {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+form.checkout {
+  max-width: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+form label.top input,
+form label.middle input {
+  appearance: none;
+  display: block;
+  padding: 0.75rem;
+  margin: auto;
+  margin-bottom: 2%;
+}
+
+form label.bottom {
+  margin-top: 5px;
+}
+
+ul.checkout-summary {
+  list-style-type: none;
+  text-align: justify;
+  padding: 0;
+  margin: 0;
+}
+
+ul.checkout-summary li {
+  margin-bottom: 5px;
+}
+
+form fieldset {
+  border: solid 2px var(--dark-grey);
+  margin-top: 1rem;
+  text-align: center;
+}
+legend {
+  font-size: 1em;
+  font-weight: 600;
   text-align: center;
 }
 
