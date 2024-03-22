@@ -1,5 +1,5 @@
 
-import { getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { alertMessage, getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 
 function productDetailsTemplate(product){
@@ -51,12 +51,14 @@ export default class ProductDetails {
 
             if (userConfirmed) { //If user clicks ok, increment quantity
                 cartItems[productIndex].Quantity = (cartItems[productIndex].Quantity || 0) + 1; // if quntity = null/0/undefined/Nan, use 1 instead
+                alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
             }
             
         } else {
             // If product is not in the cart, add it with quantity of 1
             this.product.Quantity = 1;
             cartItems.push(this.product);
+            alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
             }
         setLocalStorage("so-cart", cartItems);
         }

@@ -81,7 +81,7 @@ export function alertMessage(message, scroll = true, duration = 3000) {
   main.prepend(alert);
 
   alert.addEventListener("click", function (e) {
-    if (e.target.tagNmae == "SAPN") {
+    if (e.target.tagNmae == "span") {
       main.removeChild(this);
     }
   });
