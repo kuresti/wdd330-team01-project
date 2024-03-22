@@ -8,17 +8,28 @@
     <script src="js/Alert.js" type="module"></script>
     <script src="js/main.js" type="module"></script>
     <script src="js/newsletter-banner.js" type="module"></script>
+    <script src="js/reg-giveaway.js" type="module"></script>
   </head>
 
   <body>
     <header class="divider" id="main-header"></header>
 
     <main class="divider">
+      <div id="reg-banner" style="display: none">
+        <h2>Welcome to our site for the first time!</h2>
+        <p>
+          Click the button to register with the site and recive giveaway
+          details.
+        </p>
+        <a href="registerGiveaway.html" class="join">Register for Giveaway</a>
+      </div>
+
       <div id="banner">
         <p>Sign up to recive our Newsletter!</p>
         <a href="newsletter.html" class="join">Sign Up</a>
         <button id="close-banner">X</button>
       </div>
+
       <div class="hero">
         <img
           src="/images/banner-sm.jpg"

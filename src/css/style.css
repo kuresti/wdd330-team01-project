@@ -18,6 +18,9 @@
 }
 
 /* --------------------------- Banner --------------------- */
+#reg-banner a {
+  text-decoration: none;
+}
 
 #banner {
   position: fixed;
