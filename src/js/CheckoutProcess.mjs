@@ -3,7 +3,6 @@ import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
 
-
 function formDataToJSON(formElement) {
     //using Object.fromEntries instead of an empty object and for loop
     const formData = new FormData(formElement);
@@ -11,7 +10,6 @@ function formDataToJSON(formElement) {
     const formDataJSONObj = Object.fromEntries(formData.entries());
 
     services.formatExpiration(formDataJSONObj);
-    console.log(formDataJSONObj);
     // const formData = new FormData(formElement);
     
     // const formDataJSONObj ={};
@@ -52,9 +50,6 @@ export default class CheckoutProcess {
         this.list = getLocalStorage(this.key);
         this.calculateItemSummary();
     }
-
-
-    
 
     calculateItemSummary() {
 
@@ -120,5 +115,32 @@ export default class CheckoutProcess {
         
     }
 
-    
+    setExpirationPeriod() {
+        let today = new Date();
+        let year = today.getFullYear();
+        let futureYear = year + 10;
+        let month = today.getMonth() + 1;
+        month = month < 10 ? "0" + month : month.toString();
+        let currentMonth = year + "-" + month;
+        let futureMonth = futureYear + "-" + month;
+      
+        document.getElementById("expiration").setAttribute("min", currentMonth);
+        document.getElementById("expiration").setAttribute("max", futureMonth);
+      }
+
+    formValidation() {
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.forms["checkout"];
+            form.addEventListener("change", (event) => {
+            const target = event.target;
+            const errorMsg = event.srcElement.nextElementSibling;
+            if (!target.checkValidity()) {
+                errorMsg.classList.remove("hide");
+            } else {
+                errorMsg.classList.add("hide");
+            }
+            });
+        });
+    }
+
 }
