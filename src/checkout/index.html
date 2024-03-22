@@ -22,43 +22,44 @@
             <legend>Shipping</legend>
             <div class="checkout__name">
               <label class="top" for="fname"
-                >First Name*<input name="fname" required
+                >First Name*<input name="fname" pattern="[\p{L}\-]+" title="No numbers or symbols expect '-' are allowed" required
               /></label>
               <label class="top" for="lname"
-                >Last Name*<input name="lname" required
+                >Last Name*<input name="lname" pattern="[\p{L}\-]+" title="No numbers or symbols expect '-' are allowed" required
               /></label>
             </div>
             <div class="checkout__address">
               <label class="top" for="street"
-                >Street*<input name="street" required
+                >Street*<input name="street" pattern="[\p{L}\p{M}-]+(?:\s[\p{L}\p{M}-]+)*" titile="A street address is needed" required
               /></label>
               <label class="top" for="city"
-                >City*<input name="city" required
+                >City*<input name="city" pattern="[\p{L}\p{M}-]+(?:\s[\p{L}\p{M}-]+)*" title="A city address is needed" required
               /></label>
               <label class="top" for="state"
-                >State*<input name="state" required
+                >State*<input name="state" pattern="[\p{L}\p{M}-]+(?:\s[\p{L}\p{M}-]+)*" title="A state address is needed" required
               /></label>
               <label class="top" for="zip"
-                >Zip Code<input name="zip" id="zip" required
+                >Zip Code<input name="zip" pattern="^[0-9]+$" title="A zip code is needed.  Numbers only." id="zip" required
               /></label>
             </div>
           </fieldset>
           <fieldset class="payment">
             <legend>Payment</legend>
-            <label class="middle" for="cardNumber"
-              >Credit Card Number*<input name="cardNumber" required
-            /></label>
-            <label class="middle" for="expiration"
-              >Expiration Date*<input
+            <label class="middle" for="cardNumber">Credit Card Number*
+              <input name="cardNumber"  pattern="^\d{16}$" title="Please enter a 16-digit number" required />
+            </label>
+            <label class="middle" for="expiration">Expiration Date*
+              <input
+                id="expiration"
                 type="month"
                 name="expiration"
-                min="2024-03"
-                max="2035-12"
-                required
-            /></label>
-            <label class="middle" for="code"
-              >Security Code*<input name="code" required
-            /></label>
+                min=""
+                max=""
+                required />
+              </label>
+            <label class="middle" for="code">Security Code*
+              <input name="code" pattern="^[0-9]+$" title="Numbers only." required />
+            </label>
           </fieldset>
           <fieldset class="checkout-summary">
             <legend>Order Summary</legend>
