@@ -21,52 +21,108 @@
           <fieldset class="shipping">
             <legend>Shipping</legend>
             <div class="checkout__name">
-              <label class="top" for="fname">First Name*
-                <input name="fname" pattern="^[A-Za-z]+[A-Za-z\s\-]*$" title="No numbers or symbols expect '-' are allowed" required />
-                <p class="checkout-form-error hide">Alphebetical characters only.  No numbers.</p>
+              <label class="top" for="fname"
+                >First Name*
+                <input
+                  name="fname"
+                  pattern="^[A-Za-z]+[A-Za-z\s\-]*$"
+                  title="No numbers or symbols expect '-' are allowed"
+                  required
+                />
+                <p class="checkout-form-error hide">
+                  Alphebetical characters only. No numbers.
+                </p>
               </label>
-              <label class="top" for="lname">Last Name*
-                <input name="lname" pattern="^[A-Za-z]+[A-Za-z\s\-]*$" title="No numbers or symbols expect '-' are allowed" required />
-                <p class="checkout-form-error hide">Alphebetical characters only.  No numbers.</p>
+              <label class="top" for="lname"
+                >Last Name*
+                <input
+                  name="lname"
+                  pattern="^[A-Za-z]+[A-Za-z\s\-]*$"
+                  title="No numbers or symbols expect '-' are allowed"
+                  required
+                />
+                <p class="checkout-form-error hide">
+                  Alphebetical characters only. No numbers.
+                </p>
               </label>
             </div>
             <div class="checkout__address">
-              <label class="top" for="street">Street*
-                <input name="street" pattern="^[a-zA-Z0-9\p{P}\p{S}]+(?: [a-zA-Z0-9\p{P}\p{S}]+)*$" titile="A street address is needed" required />
+              <label class="top" for="street"
+                >Street*
+                <input
+                  name="street"
+                  pattern="^[a-zA-Z0-9\p{P}\p{S}]+(?: [a-zA-Z0-9\p{P}\p{S}]+)*$"
+                  titile="A street address is needed"
+                  required
+                />
                 <p class="checkout-form-error hide">Invalid street.</p>
               </label>
-              <label class="top" for="city">City*
-                <input name="city" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="A city address is needed" required/>
+              <label class="top" for="city"
+                >City*
+                <input
+                  name="city"
+                  pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$"
+                  title="A city address is needed"
+                  required
+                />
                 <p class="checkout-form-error hide">Invalid city.</p>
               </label>
-              <label class="top" for="state">State*
-                <input name="state" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="A state address is needed" required/>
+              <label class="top" for="state"
+                >State*
+                <input
+                  name="state"
+                  pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$"
+                  title="A state address is needed"
+                  required
+                />
                 <p class="checkout-form-error hide">Invalid state.</p>
               </label>
-              <label class="top" for="zip">Zip Code*
-                <input name="zip" pattern="^[0-9]+$" title="A zip code is needed.  Numbers only." id="zip" required />
+              <label class="top" for="zip"
+                >Zip Code*
+                <input
+                  name="zip"
+                  pattern="^[0-9]+$"
+                  title="A zip code is needed.  Numbers only."
+                  id="zip"
+                  required
+                />
                 <p class="checkout-form-error hide">Numbers only.</p>
               </label>
             </div>
           </fieldset>
           <fieldset class="payment">
             <legend>Payment</legend>
-            <label class="middle" for="cardNumber">Credit Card Number*
-              <input name="cardNumber"  pattern="^\d{16}$" title="Please enter a 16-digit number" required />
+            <label class="middle" for="cardNumber"
+              >Credit Card Number*
+              <input
+                name="cardNumber"
+                pattern="^\d{16}$"
+                title="Please enter a 16-digit number"
+                required
+              />
               <p class="checkout-form-error hide">16 digits</p>
             </label>
-            <label class="middle" for="expiration">Expiration Date*
+            <label class="middle" for="expiration"
+              >Expiration Date*
               <input
                 id="expiration"
                 type="month"
                 name="expiration"
                 min=""
                 max=""
-                required title="Pick a date"/>
-                <p class="checkout-form-error hide">Pick a date.</p>
-              </label>
-            <label class="middle" for="code">Security Code*
-              <input name="code" pattern="^[0-9]+$" title="Numbers only." required />
+                required
+                title="Pick a date"
+              />
+              <p class="checkout-form-error hide">Pick a date.</p>
+            </label>
+            <label class="middle" for="code"
+              >Security Code*
+              <input
+                name="code"
+                pattern="^[0-9]+$"
+                title="Numbers only."
+                required
+              />
               <p class="checkout-form-error hide">Numbers only.</p>
             </label>
           </fieldset>
@@ -74,27 +130,32 @@
             <legend>Order Summary</legend>
             <ul class="checkout-summary">
               <li>
-                <label class="bottom" for="num-items">Number of Items: 
+                <label class="bottom" for="num-items"
+                  >Number of Items:
                   <span id="num-items"></span>
                 </label>
               </li>
               <li>
-                <label class="bottom" for="cartTotal">Subtotal: 
+                <label class="bottom" for="cartTotal"
+                  >Subtotal:
                   <span id="cartTotal"></span>
                 </label>
               </li>
               <li>
-                <label class="bottom" for="shipping">Shipping Estimate: 
+                <label class="bottom" for="shipping"
+                  >Shipping Estimate:
                   <span id="shipping"></span>
                 </label>
               </li>
               <li>
-                <label class="bottom" for="tax">Tax: 
+                <label class="bottom" for="tax"
+                  >Tax:
                   <span id="tax"></span>
                 </label>
               </li>
               <li>
-                <label class="bottom" for="orderTotal">Order Total: 
+                <label class="bottom" for="orderTotal"
+                  >Order Total:
                   <span id="orderTotal"></span>
                 </label>
               </li>
