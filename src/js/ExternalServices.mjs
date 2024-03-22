@@ -1,4 +1,4 @@
-const baseURL = "https://wdd330-backend.onrender.com:3000/";
+const baseURL = "http://server-nodejs.cit.byui.edu:3000/";
 
 async function convertToJson(res) {
   const data = await res.json()
@@ -35,5 +35,13 @@ export default class ExternalServices {
       body: JSON.stringify(payload)
     }
     return await fetch(baseURL + "checkout/", options).then(convertToJson);
+  }
+
+  formatExpiration(json) {
+    let value = json["expiration"];
+    const parts = value.split("-");
+    value = `${parts[1]}/${parts[0].slice(-2)}`;
+    json["expiration"] = value;
+    return json;
   }
 }

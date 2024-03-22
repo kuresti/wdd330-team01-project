@@ -477,5 +477,5 @@ footer {
 }
 
 .hide {
-  display: none;
+  visibility: hidden;
 }

@@ -10,8 +10,8 @@ function formDataToJSON(formElement) {
 
     const formDataJSONObj = Object.fromEntries(formData.entries());
 
-
-
+    services.formatExpiration(formDataJSONObj);
+    console.log(formDataJSONObj);
     // const formData = new FormData(formElement);
     
     // const formDataJSONObj ={};

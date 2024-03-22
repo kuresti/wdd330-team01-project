@@ -22,30 +22,30 @@
             <legend>Shipping</legend>
             <div class="checkout__name">
               <label class="top" for="fname">First Name*
-                <input name="fname" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="No numbers or symbols expect '-' are allowed" required />
-                <p class="checkout-form-error hide">invalid first name</p>
+                <input name="fname" pattern="^[A-Za-z]+[A-Za-z\s\-]*$" title="No numbers or symbols expect '-' are allowed" required />
+                <p class="checkout-form-error hide">Alphebetical characters only.  No numbers.</p>
               </label>
               <label class="top" for="lname">Last Name*
-                <input name="lname" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="No numbers or symbols expect '-' are allowed" required />
-                <p class="checkout-form-error hide">invalid last name</p>
+                <input name="lname" pattern="^[A-Za-z]+[A-Za-z\s\-]*$" title="No numbers or symbols expect '-' are allowed" required />
+                <p class="checkout-form-error hide">Alphebetical characters only.  No numbers.</p>
               </label>
             </div>
             <div class="checkout__address">
               <label class="top" for="street">Street*
                 <input name="street" pattern="^[a-zA-Z0-9\p{P}\p{S}]+(?: [a-zA-Z0-9\p{P}\p{S}]+)*$" titile="A street address is needed" required />
-                <p class="checkout-form-error hide">invalid street</p>
+                <p class="checkout-form-error hide">Invalid street.</p>
               </label>
               <label class="top" for="city">City*
                 <input name="city" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="A city address is needed" required/>
-                <p class="checkout-form-error hide">invalid city</p>
+                <p class="checkout-form-error hide">Invalid city.</p>
               </label>
               <label class="top" for="state">State*
                 <input name="state" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="A state address is needed" required/>
-                <p class="checkout-form-error hide">invalid state</p>
+                <p class="checkout-form-error hide">Invalid state.</p>
               </label>
               <label class="top" for="zip">Zip Code*
                 <input name="zip" pattern="^[0-9]+$" title="A zip code is needed.  Numbers only." id="zip" required />
-                <p class="checkout-form-error hide">invalid zip code</p>
+                <p class="checkout-form-error hide">Numbers only.</p>
               </label>
             </div>
           </fieldset>
@@ -53,7 +53,7 @@
             <legend>Payment</legend>
             <label class="middle" for="cardNumber">Credit Card Number*
               <input name="cardNumber"  pattern="^\d{16}$" title="Please enter a 16-digit number" required />
-              <p class="checkout-form-error hide">invalid credit card number</p>
+              <p class="checkout-form-error hide">16 digits</p>
             </label>
             <label class="middle" for="expiration">Expiration Date*
               <input
@@ -62,12 +62,12 @@
                 name="expiration"
                 min=""
                 max=""
-                required />
-                <p class="checkout-form-error hide">invalid expiration date</p>
+                required title="Pick a date"/>
+                <p class="checkout-form-error hide">Pick a date.</p>
               </label>
             <label class="middle" for="code">Security Code*
               <input name="code" pattern="^[0-9]+$" title="Numbers only." required />
-              <p class="checkout-form-error hide">invalid security code</p>
+              <p class="checkout-form-error hide">Numbers only.</p>
             </label>
           </fieldset>
           <fieldset class="checkout-summary">
