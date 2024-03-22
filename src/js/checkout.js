@@ -11,6 +11,9 @@ document
 
 document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
   e.preventDefault();
-  myCheckout.checkout();
+  const myForm = document.getElementById("checkoutForm");
+  const chk_status = myForm.checkValidity();
+  myForm.reportValidity();
+  if (chk_status) myCheckout.checkout();
   loadHeaderFooter();
 });

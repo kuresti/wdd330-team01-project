@@ -39,14 +39,23 @@
                 >State*<input name="state" required
               /></label>
               <label class="top" for="zip"
-                >Zip Code<input name="zip" id="zip" required
+                >Zip Code<input
+                  type="number"
+                  pattern="[0-9]{5}"
+                  name="zip"
+                  id="zip"
+                  required
               /></label>
             </div>
           </fieldset>
           <fieldset class="payment">
             <legend>Payment</legend>
             <label class="middle" for="cardNumber"
-              >Credit Card Number*<input name="cardNumber" required
+              >Credit Card Number*<input
+                type="number"
+                pattern="[0-9]{16}"
+                name="cardNumber"
+                required
             /></label>
             <label class="middle" for="expiration"
               >Exipration Date*<input
@@ -57,7 +66,11 @@
                 required
             /></label>
             <label class="middle" for="code"
-              >Security Code*<input name="code" required
+              >Security Code*<input
+                type="number"
+                pattern="[0-9]{3}"
+                name="code"
+                required
             /></label>
           </fieldset>
           <fieldset class="checkout-summary">
