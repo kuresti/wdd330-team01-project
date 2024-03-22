@@ -22,11 +22,10 @@ setExpirationPeriod();
 function formValidation() {
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.forms["checkout"]
-    form.addEventListener("change", (e) => {
-      
-      const target = e;
-      const errorMsg = e.srcElement.nextElementSibling;
-      if (!target.checkValidity) {
+    form.addEventListener("change", (event) => {
+      const target = event.target;
+      const errorMsg = event.srcElement.nextElementSibling;
+      if (!target.checkValidity()) {
         errorMsg.classList.remove("hide");
       } else {
         errorMsg.classList.add("hide");
@@ -45,7 +44,7 @@ document
   .addEventListener("blur", myCheckout.calculateOrdertotal.bind(myCheckout));
 
 document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
-  // e.preventDefault();
+  e.preventDefault();
   
   const formElem = document.forms["checkout"];
   const isValid = formElem.checkValidity();

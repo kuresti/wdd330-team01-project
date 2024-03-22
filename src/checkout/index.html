@@ -22,25 +22,25 @@
             <legend>Shipping</legend>
             <div class="checkout__name">
               <label class="top" for="fname">First Name*
-                <input name="fname" pattern="[\p{L}\-]+" title="No numbers or symbols expect '-' are allowed" required />
+                <input name="fname" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="No numbers or symbols expect '-' are allowed" required />
                 <p class="checkout-form-error hide">invalid first name</p>
               </label>
               <label class="top" for="lname">Last Name*
-                <input name="lname" pattern="[\p{L}\-]+" title="No numbers or symbols expect '-' are allowed" required />
+                <input name="lname" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="No numbers or symbols expect '-' are allowed" required />
                 <p class="checkout-form-error hide">invalid last name</p>
               </label>
             </div>
             <div class="checkout__address">
               <label class="top" for="street">Street*
-                <input name="street" pattern="[\p{L}\p{M}-]+(?:\s[\p{L}\p{M}-]+)*" titile="A street address is needed" required />
+                <input name="street" pattern="^[a-zA-Z0-9\p{P}\p{S}]+(?: [a-zA-Z0-9\p{P}\p{S}]+)*$" titile="A street address is needed" required />
                 <p class="checkout-form-error hide">invalid street</p>
               </label>
               <label class="top" for="city">City*
-                <input name="city" pattern="[\p{L}\p{M}-]+(?:\s[\p{L}\p{M}-]+)*" title="A city address is needed" required/>
+                <input name="city" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="A city address is needed" required/>
                 <p class="checkout-form-error hide">invalid city</p>
               </label>
               <label class="top" for="state">State*
-                <input name="state" pattern="[\p{L}\p{M}-]+(?:\s[\p{L}\p{M}-]+)*" title="A state address is needed" required/>
+                <input name="state" pattern="^[a-zA-Z]+([- ][a-zA-Z]+)*$" title="A state address is needed" required/>
                 <p class="checkout-form-error hide">invalid state</p>
               </label>
               <label class="top" for="zip">Zip Code*
@@ -66,7 +66,7 @@
                 <p class="checkout-form-error hide">invalid expiration date</p>
               </label>
             <label class="middle" for="code">Security Code*
-              <input name="code" type="password" pattern="^[0-9]+$" title="Numbers only." required />
+              <input name="code" pattern="^[0-9]+$" title="Numbers only." required />
               <p class="checkout-form-error hide">invalid security code</p>
             </label>
           </fieldset>
@@ -100,7 +100,7 @@
               </li>
             </ul>
           </fieldset>
-          <button id="checkoutSubmit" type="submit">Checkout</button>
+          <button id="checkoutSubmit">Checkout</button>
         </form>
       </section>
     </main>
