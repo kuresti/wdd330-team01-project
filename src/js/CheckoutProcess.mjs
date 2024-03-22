@@ -100,6 +100,7 @@ export default class CheckoutProcess {
     }
 
     async checkout() {
+        try{
         const formElement = document.forms["checkout"];
 
         const json = formDataToJSON(formElement);
@@ -111,6 +112,9 @@ export default class CheckoutProcess {
 
         const response = await services.checkout(json);
         console.log(response);
+        } catch(error){
+            console.error("An error occurred during checkout: " + error.message);
+        }
 
     }
     
