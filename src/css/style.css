@@ -67,7 +67,7 @@ form fieldset {
   padding: 0.5rem 2%;
 }
 
-form label.top {
+form label.top, form label.middle {
   display: block;
   padding-top: 1rem;
   color: var(--color);
@@ -466,4 +466,16 @@ legend {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+
+
+/* -----------------------checkout form error style------------------------------------ */
+.checkout-form-error {
+  color: red;
+  font-size: 12px;
+  margin: 0;
+}
+
+.hide {
+  display: none;
 }

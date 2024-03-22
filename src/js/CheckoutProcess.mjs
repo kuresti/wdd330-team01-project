@@ -112,11 +112,13 @@ export default class CheckoutProcess {
         try {
             const response = await services.checkout(json);
             console.log(response);
+            setLocalStorage("so-cart", []);
             location.assign("/checkout/success.html");    
         } catch (err) {
             console.log(err);
         }
         
     }
+
     
 }

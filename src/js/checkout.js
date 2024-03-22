@@ -17,6 +17,25 @@ function setExpirationPeriod() {
 }
 
 setExpirationPeriod();
+
+
+function formValidation() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.forms["checkout"]
+    form.addEventListener("change", (e) => {
+      
+      const target = e;
+      const errorMsg = e.srcElement.nextElementSibling;
+      if (!target.checkValidity) {
+        errorMsg.classList.remove("hide");
+      } else {
+        errorMsg.classList.add("hide");
+      }
+      });
+  });
+}
+formValidation()
+
 const myCheckout = new CheckoutProcess("so-cart", ".checkout-summary");
 
 myCheckout.init();
@@ -26,7 +45,7 @@ document
   .addEventListener("blur", myCheckout.calculateOrdertotal.bind(myCheckout));
 
 document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   
   const formElem = document.forms["checkout"];
   const isValid = formElem.checkValidity();
