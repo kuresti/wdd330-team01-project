@@ -483,7 +483,8 @@ footer {
   visibility: hidden;
 }
 
-/* -----------------------checkout form error style------------------------------------ */
+/* -----------------------alert message style------------------------------------ */
 .alert {
   background-color: greenyellow;
+  cursor: pointer;
 }
