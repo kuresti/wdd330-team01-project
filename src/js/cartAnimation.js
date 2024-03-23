@@ -1,4 +1,4 @@
-//Start Chuck Mikolyski
+
 export default function cartAnimation() {
   let keyFrames = [
     { transform: "rotate(30deg)", easing: "ease-in" },
@@ -14,4 +14,4 @@ export default function cartAnimation() {
 
   document.getElementById("cartAnimation").animate(keyFrames, options);
 }
-//End Chuck Mikolyski
+

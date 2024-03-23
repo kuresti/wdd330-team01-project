@@ -1,4 +1,4 @@
-//Start Chuck Mikolyski
+
 import { getLocalStorage } from "./utils.mjs";
 
 export default function setCartSup() {
@@ -17,4 +17,4 @@ export default function setCartSup() {
   }
 }
 
-//End Chuck Mikolyski
+

@@ -75,14 +75,13 @@ export default class ProductDetails {
   }
 
   async init(){
-    //this.reviews = await this.dataSource.getReviews(this.productId); 
+   
     this.reviews = getLocalStorage(this.productId);
     this.product = await this.dataSource.findProductById(this.productId);
-    //let htmlText = await this.getPage(id);
     
     this.renderProductDetails("main");
     this.renderProductComments("product-comments")
-    //document.querySelector("#product-display").innerHTML = htmlText;
+    
     document.getElementById("addToCart").addEventListener("click", this.addToCartHandler.bind(this));
     document.getElementById("post-comment").addEventListener("click", this.postComment.bind(this));
     this.renderColorList(this.product);
@@ -120,7 +119,7 @@ export default class ProductDetails {
     return createPage(product);
   }
 
-  // add to cart button event handler
+  
   async addToCartHandler(e) {
     var product = await dataSource.findProductById(e.target.dataset.id);
     let color = document.getElementById("productcolorname").innerText;
@@ -136,7 +135,7 @@ export default class ProductDetails {
     await this.addCommentToStorage(this.productId, comment);
     this.reviews = getLocalStorage(this.productId);
     this.renderProductComments("product-comments")
-    //document.getElementById("user-comments").value = "";
+    
   }
 
   async addProductToCart(product, image, color) {
@@ -144,23 +143,23 @@ export default class ProductDetails {
     product["Images"] = image;
     product["Colors"] = color;
   
-    // Parse current cart items if any and add to objArr
+    
     const cartItems = [getLocalStorage("so-cart")];
     let objArr = new Array;
     let newCart = new Array;
   
-    // Parse current cart items if any and add to objArr
+    
     if (cartItems[0] != null) {
       let items = cartItems[0].flat(10);
       objArr = items.map((x) => JSON.parse(x));
     }
   
-    // Deal with possible null entry
+    
     if (objArr[0] == null) {
       objArr.shift();
     }
   
-    // Add old items if any and add new item
+    
     if (objArr.length > 0) {
       for (let x in objArr) {
         newCart.push(JSON.stringify(objArr[x]));
@@ -168,18 +167,18 @@ export default class ProductDetails {
   
       newCart.push(JSON.stringify(product));
     }
-    // If no old items set new item as first item
+    
     else {
       newCart = [JSON.stringify(product)];
     }
     
-    // Set item "so-cart" in the local storage
+    
     setLocalStorage("so-cart", newCart);
     
-    //start Chuck Mikolyski
+    
     setCartSup();
     cartAnimation();
-    //End Chuck Mikolyski
+    
   }
 
   async addCommentToStorage(key, comment) {
@@ -194,7 +193,7 @@ export default class ProductDetails {
       var stringContent = comment;
     }
     
-    // Set key in the local storage
+    
     setLocalStorage(key, stringContent);
   }
   

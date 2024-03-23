@@ -21,10 +21,7 @@ async function renderIndex() {
   // Create html for top products
   const htmlItems = topproduct.map((i) => itemTemplate(i));
 
-  // For all items use
-  //const htmlItems = topproduct.map((i) => itemTemplate(i));
-
-  // Combine all html into one variable and add it to the homepage
+  
   const finished = `<ul class="product-list">` + htmlItems.join("") + `</ul>`;
   document.querySelector("#index-product-display").innerHTML = finished;
 }

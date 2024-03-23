@@ -8,7 +8,7 @@ checkout.init();
 document
   .querySelector("#zip")
   .addEventListener("blur", checkout.calculateOrdertotal.bind(checkout));
-// listening for click on the button
+
 document.querySelector("#form-sub").addEventListener("click", (e) => {
   e.preventDefault();
   var myForm = document.forms[0];

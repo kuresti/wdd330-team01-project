@@ -1,7 +1,6 @@
-//Use this one for production deploy.
+
 const baseURL =  'https://wdd330-backend.onrender.com/' 
-//Use this one for local development.
-//const baseURL = 'http://server-nodejs.cit.byui.edu:3000/'
+
 
 
 async function convertToJson(res) {
