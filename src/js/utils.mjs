@@ -76,18 +76,23 @@ export function alertMessage(message, scroll = true, duration = 3000) {
   alert.innerHTML = `
   <p>${message}</p><span>X</span>
   `;
-  
+  alert.addEventListener("click", function(e) {
+    if (e.target.tagName == "span") {
+      main.removeChind(this);
+    }
+  })
   const main = document.querySelector("main");
   main.prepend(alert);
-
-  alert.addEventListener("click", function (e) {
-    if (e.target.tagNmae == "span") {
-      main.removeChild(this);
-    }
-  });
+  if (scroll) window.scrollTo(0.0);
 }
+
+
 
 export function removeAllAlerts() {
   const alerts = document.querySelectorAll(".alert");
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
+
+  if (scroll) {
+    window.scrollTo(0,0);
+  }
 }
