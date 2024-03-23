@@ -16,6 +16,7 @@ export default defineConfig({
         success: resolve(__dirname, "src/checkout/success.html"),
         register: resolve(__dirname, "src/registerGiveaway.html"),
         newsletter: resolve(__dirname, "src/newsletter.html"),
+        thankyou: resolve(__dirname, "src/thankyou.html"),
       },
     },
   },
