@@ -208,35 +208,15 @@ button {
 
 .cart svg {
   width: 25px;
+  transition: transform 0.5s ease;
+}
+
+
+.cart svg.animate {
+  transform: scale(1.2);
 }
 .cart:hover svg {
   fill: gray;
-}
-
-.icon-animation:hover{
- position: relative;
- animation-duration: 1s;
- animation-name: rotate;
-
-transition: tranform 0.4s linear 0s, border-top-left-radius 0.1s linear 0s,
-border-top-right-radius 0.1s linear 0.1s,
-border-bottom-right-radius 0.1s linear 0.2s,
-border-bottom-left-radius 0.1s linear 0.3s;
-}
-
-@keyframes rotate {
-  from {transform: rotate(360deg);
-        border-radius: 50%;
-      }
-  to { transform: rotate(-360deg);
-
-  }
-}
-
-
-
-@keyframes rotate {
- 
 }
 
 /* End cart icon styles */

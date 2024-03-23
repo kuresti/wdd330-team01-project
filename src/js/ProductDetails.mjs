@@ -60,6 +60,15 @@ export default class ProductDetails {
             cartItems.push(this.product);
             alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
             }
+
+        //Animate the shopping cart icon
+        const cartIcon = document.querySelector(".cart svg");
+        cartIcon.classList.add("animate");
+
+        //Remove the animation class after a delay
+        setTimeout(() => {
+            cartIcon.classList.remove("animate");
+        }, 1000);
         setLocalStorage("so-cart", cartItems);
         }
         
