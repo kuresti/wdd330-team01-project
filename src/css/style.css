@@ -208,6 +208,12 @@ button {
 
 .cart svg {
   width: 25px;
+  transition: transform 0.5s ease;
+}
+
+
+.cart svg.animate {
+  transform: scale(1.2);
 }
 .cart:hover svg {
   fill: gray;
