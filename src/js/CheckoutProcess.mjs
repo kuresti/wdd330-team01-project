@@ -109,8 +109,8 @@ export default class CheckoutProcess {
         // console.log("json: ", json);
         
         try {
-            // const response = await services.checkout(json);
-            // console.log(response);
+            await services.checkout(json);  // send API request
+            
             setLocalStorage("so-cart", []);
             location.assign("/checkout/success.html");    
         } catch (err) {
