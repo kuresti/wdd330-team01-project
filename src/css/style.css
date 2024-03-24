@@ -211,7 +211,6 @@ button {
   transition: transform 0.5s ease;
 }
 
-
 .cart svg.animate {
   transform: scale(1.2);
 }
