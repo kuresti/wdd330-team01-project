@@ -2,7 +2,7 @@
 
 ## Description
 
-Use this as a starting point to complete the WDD 330 team activity: the SleepOutside web application. It scaffolds out a simple web app with Vite support to bundle up our assets.
+Sleep Outside is an e-commerce web application buitl with JavaScript ES6 modules, Vite, HTML, CSS, and REST APIs. Users can browse products, view product details, mamange a persistent shopping cart, and complete a checkout workflow.
 
 ## Prerequisites
 
