@@ -1,4 +1,7 @@
-# sleepoutside
+# Sleep Outside
+Sleep Outside is a team-developed e-commerce web application for browsing and purchasing outdoor prodcuts. The application was built as an academic team project for the ByU-Idaho WDD 330 Web Frontend Development course.
+
+The project demonstrates modern JavaScript development, modular application architecture, REST API integration, shopping-cart management, checkout processing, responsive user-interface development, and collaborative Git/GitHub workflows.
 
 ## Description
 
