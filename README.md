@@ -170,7 +170,7 @@ git clone http://github.com/kuresti/wdd330-team01-project.git
 Navigate to the project directory:
 
 ```bash
-cd wdd33-=team01-project
+cd wdd330-team01-project
 ```
 
 Install project dependencies:
@@ -193,13 +193,30 @@ Create a production build using:
 npm run build
 ```
 
-## Setup
+The application uses Vite to prepare optimized application files for deployment.
 
-- `npm install`
-- `npm run start` starts up a local server and updates on any JS or CSS/SCSS changes.
+## What We Learned
+
+Sleep Outside provided practical experience taking individual web-development concepts and combining them into a larger application.
+
+Throught the project, the team gained experience with:
+- Organizing JavaScript into reusable modules.
+- Working with REST-based applicaiton services and JSON data.
+- Managing application state and browser local storage.
+- Creating dynamic interfaces using JavaScript and DOM manipulation.
+- Implementing shopping-cart and checkout business logic.
+- Debugging application behavior across development and production environments.
+- Troubleshooting build and deployment issues.
+- Working collaboratively using Git branches, pull requests, and merges.
+- Integrating features developed by multiple developers into a shared codebase.
+
+## Project Context
+
+Sleep Outside was created as an academic team project for the BYU-Idaho WDD 330 Web Frontend Development course.
+
+The repository reflects both individual assignments and collaborative team development completed throughout the course. Some initial structure and requirements were provided as part of the course, while team members implemented, extended, debugged, and integrated application features throughout development.
 
 ## Other commands
-
 - `npm run build` to build final files when you are ready to turn in.
 - `npm run lint` to run ESLint against your code to find errors.
 - `npm run format` to run Prettier to automatically format your code.
